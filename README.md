@@ -9,7 +9,7 @@
 * Execute the following commands
 ```
 $ chmod +x install.sh
-$ ./install
+$ ./install.sh
 ```
 ### Uninstallation guide:
 
@@ -17,5 +17,5 @@ $ ./install
 * Execute the following commands
 ```
 $ chmod +x uninstall.sh
-$ ./uninstall
+$ ./uninstall.sh
 ```

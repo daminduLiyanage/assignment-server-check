@@ -13,7 +13,7 @@ $ ./install
 ```
 ### Uninstallation guide:
 
-* Go to assignment-server-check directory
+* Go to ```assignment-server-check``` directory
 * Execute the following commands
 ```
 $ chmod +x uninstall.sh

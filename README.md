@@ -1,7 +1,7 @@
 # Assignment
 ## Assignment installation on Docker environment.
 
-### Installation Guide:
+### Installation guide:
 
 
 * Clone with ```https://gitlab.com/daminduLiyanage/assignment-server-check.git && cd assignment-server-check```

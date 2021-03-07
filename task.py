@@ -75,7 +75,7 @@ def main():
         sshClient = conn()
         sshClient.connect(hostname=INSTANCE_DNS, username=USERNAME, pkey=KEY)
         # 1
-        cmd = "systemctl is-active --quiet mysql  || sudo systemctl start httpd"
+        cmd = "systemctl is-active --quiet httpd  || sudo systemctl start httpd"
         stdin, stdout, stderr = sshClient.exec_command(cmd)
         output = stdout.read()
         logger.info(SERVER_SSH_CHECK_OK+output.decode("utf-8"))

@@ -15,6 +15,10 @@ WAIT_BEFORE_JOB_TWO = 40
 # ------------------------------------------------------------------------
 def run_continuously(interval=1):
     # --------------------------------------------------------------------
+    """
+        From Schedule library. Function runs a thread in background so that
+        it will get activated at certain time of the day.
+    """
     cease_continuous_run = threading.Event()
     class ScheduleThread(threading.Thread):
         @classmethod

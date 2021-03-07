@@ -36,4 +36,5 @@ def main():
                 region_name = REGION_NAME
                 )
     s3.meta.client.upload_file(FILE_NAME+".txt", BUCKET_NAME, FILE_NAME+".txt")
+    # Created empty log file in S3
 # end main method

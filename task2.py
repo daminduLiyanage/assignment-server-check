@@ -84,6 +84,7 @@ def main():
             sftp.get(REMOTE_HTML_PATH+eachFileName, "./"+TEMP_FOLDER_NAME+"/"+SERVER_CONTENT+"/"+eachFileName) 
         for eachFileName in sftp.listdir(REMOTE_LOG_PATH):
             sftp.get(REMOTE_LOG_PATH+eachFileName, "./"+TEMP_FOLDER_NAME+"/"+SERVER_LOGS+"/"+eachFileName) 
+        # Downloaded files from server
         sftp.close()
         # 2 
         shutil.make_archive(ARCHIVE_NAME, ARCHIVE_FORMAT, TEMP_FOLDER_NAME)

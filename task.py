@@ -76,12 +76,14 @@ def main():
         sshClient.connect(hostname=INSTANCE_DNS, username=USERNAME, pkey=KEY)
         # 1
         cmd = "systemctl is-active --quiet httpd  || sudo systemctl start httpd"
+        # Check if httpd runs start if not
         stdin, stdout, stderr = sshClient.exec_command(cmd)
         output = stdout.read()
         logger.info(SERVER_SSH_CHECK_OK+output.decode("utf-8"))
         sshClient.close() 
         # 2 
         cmd = "curl -s -o /dev/null -w \"%{http_code}\" "+PUBLIC_IP
+        # Check for status 200
         output = os.popen(cmd).read()
         logger.info(SERVER_STATUS+output)
         # 3
@@ -98,6 +100,7 @@ def main():
                 with open(fname) as infile:
                     for line in infile:
                         outfile.write(line)
+        # downloaded file appended to log file beggining
         s3.meta.client.upload_file(FILE_TO_BUCKET, BUCKET_NAME, LOG_FILE_NAME)
         os.remove(FILE_FROM_BUCKET)
         os.remove(FILE_TO_BUCKET)
@@ -110,6 +113,7 @@ def main():
             aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
             config=MY_CONFIG
             )
+        # The email details 
         response = ses.send_email(
             Source=EMAIL_FROM,
             Destination={
